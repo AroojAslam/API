@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner:false,
       home: Scaffold(
         body: Column(
           children: [
@@ -47,7 +48,17 @@ class _MyAppState extends State<MyApp> {
                       itemCount:  postList.length,
                       itemBuilder: (context, index) {
 
-                        return Text(index.toString());
+                        return Card(
+                          child:Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Title',style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text(postList[index].title.toString()),
+                              Text('Body',style: TextStyle(fontWeight: FontWeight.bold),),
+                              Text(postList[index].body.toString()),
+                            ],
+                          ) ,
+                        );
                       },
                     );
                   }else{
